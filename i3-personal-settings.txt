@@ -13,9 +13,9 @@ alias monitor="xrandr --output HDMI-2 --mode 3840x2160 --above eDP      -1"
 
 
 # Customizing resolution for x270
-$ xrandr --output eDP-11600x900
+$ xrandr --output eDP-1 --mode 1600x900
 # Create shortcut in ~/.bashrc:
-alias resolution="xrandr --output eDP-11600x900"
+alias resolution="xrandr --output eDP-1 --mode 1600x900"
 
 #Alias for searching a string
 alias search="ack -i -C 3 "
