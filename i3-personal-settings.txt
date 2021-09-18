@@ -1,0 +1,64 @@
+# Customizing rxvt terminal
+# In ~/.Xdefaults
+# https://opensource.com/article/19/10/why-use-rxvt-terminalhttps://opensource.com/article/19/10/why-use-rxvt-terminal
+URxvt*font: xft:Mono:pixelsize=20:antialias=true
+
+# Customizing resolution for Acer 42
+# Run command in the shell:
+xrandr --output HDMI-2 --mode 3840x2160 --above eDP-1
+# Create this shorcut in ~/.bashrc :
+#Alias for set Acer 42inch monitor                                
+alias monitor="xrandr --output HDMI-2 --mode 3840x2160 --above eDP      -1"
+#Alias for searching a string
+alias search="ack -i -C 3 "
+
+#list monitors
+xrandr --listmonitors
+
+#Change monitor brightness
+xrandr --output eDP-1 --brightness 0.5
+
+#Alias for change brightness monitor
+alias brightness="xrandr --output eDP-1 --brightness 0.5"
+
+#Alias for cd to /org-roam
+alias org="cd ~/Documents/org-roam
+
+#Mapping caps to super
+#In /etc/X11/xorg.conf:
+#Option "XkbOptions" "caps:escape"
+Install xmodmap from https://fedora.pkgs.org/34/fedora-x86_64/xmodmap-1.0.9-2.fc34.x86_64.rpm.html
+In /etc/X11/xmodmap add:
+remove Lock = Caps_Lock
+add Lock = Escape
+keysym Caps_Lock = Escape
+keysym Escape = Caps_Lock
+
+# Vim costumizations
+# In ~/.vim/vimrc
+
+" set number                                                                    
+" set relativenumber                                                            
+set spell                                                                       
+set noswapfile                                                                  
+set scrolloff=8                                                                 
+set colorcolumn=80                                                              
+set signcolumn=yes                                                              
+:imap kj <Esc>                                                                  
+:imap KJ <Esc>                                                                  
+" Detach from Vi                                                                
+set nocompatible                                                                
+" enable syntax and plugins (for netrw)                                         
+syntax enable                                                                   
+filetype plugin on                                                              
+                                                                                  
+" FINDING FILES                                                                 
+" Search down to subfolders                                                     
+" Provides tab-completion for all file-related tasks                            
+set path+=**                                                                    
+                                                                                  
+" Display all matching files when we tab complete                               
+set wildmenu                                                                    
+                                                                                
+" THINGS TO CONSIDER                                                            
+" :b lets you autocomplete any open buffer
